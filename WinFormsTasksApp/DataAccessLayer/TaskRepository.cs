@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.ViewModels
+namespace DataAccessLayer
 {
-     public class ViewTasks
+   public  class TaskRepository
     {
     }
 }

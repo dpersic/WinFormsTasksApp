@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayer.ViewModels
 {
-    public class User
+    public class ViewUser
     {
         public int nId { get; set; }
         public string sName { get; set; }
         public string sUsername { get; set; }
         public string sPassword { get; set; }
         public int nPassword { get; set; }
-        
     }
 }

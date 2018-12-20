@@ -43,7 +43,10 @@
     <Compile Include="Entities\Task.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ViewTasks.cs" />
+    <Compile Include="TaskRepository.cs" />
+    <Compile Include="UserRepository.cs" />
+    <Compile Include="ViewModels\ViewTask.cs" />
+    <Compile Include="ViewModels\ViewUser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

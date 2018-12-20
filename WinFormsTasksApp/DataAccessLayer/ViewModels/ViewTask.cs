@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
 
-namespace DataAccessLayer.Entities
+namespace DataAccessLayer.ViewModels
 {
-    public class Task
+     public class ViewTask
     {
-        public int nID { get; set; }
-        public string sTitle { get; set; }
-        public int nOwnerId { get; set; } 
-        public int nWorkerId { get; set; } 
        
+        public string sTitle { get; set; }
+        public Task  nOwnerId { get; set; } 
+        public Task nWorkerId { get; set; }
         public string sDeadline { get; set; }
         public bool bActive { get; set; }
     }
