@@ -10,10 +10,12 @@ namespace DataAccessLayer.Entities
     {
         public int nID { get; set; }
         public string sTitle { get; set; }
-        public int nOwnerId { get; set; } 
-        public int nWorkerId { get; set; } 
-       
+        public int nOwnerId { get; set; }
+        public int nWorkerId { get; set; }
+        public string sDescription { get; set; }
+
+
         public string sDeadline { get; set; }
-        public bool bActive { get; set; }
+        public int bActive { get; set; }
     }
 }

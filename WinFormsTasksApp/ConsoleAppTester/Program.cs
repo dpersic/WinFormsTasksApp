@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
 
 namespace ConsoleAppTester
 {
@@ -10,6 +11,14 @@ namespace ConsoleAppTester
     {
         static void Main(string[] args)
         {
+            /*var UsersRepo = new UserRepository();
+            var users = UsersRepo.GetAll();
+            Console.WriteLine("Ukupno: " + users.Count);
+            foreach (var user in users)
+            {
+                Console.WriteLine(user.sName);
+            }*/
+            Console.ReadKey();
         }
     }
 }
