@@ -14,13 +14,13 @@ namespace DataAccessLayer
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
 
 
-        public List<Entities.Task> GetUsers()
+        public List<Entities.Task> GetTasks()
         {
             var tasks = new List<Entities.Task>();
             using (DbConnection connection = new SqlConnection(connectionString))
             using (DbCommand command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM Tasks_Users";
+                command.CommandText = "SELECT * FROM Tasks_Tasks";
                 connection.Open();
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -41,5 +41,38 @@ namespace DataAccessLayer
             }
             return tasks;
         }
+
+
+        public void DeleteTask(Entities.Task task)
+        {
+            string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet; User ID = vjezbe; Password = vjezbe";
+            using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
+            using (DbCommand oCommand = oConnection.CreateCommand())
+            {
+                oCommand.CommandText = "DELETE FROM Tasks_Tasks WHERE ID = " + task.nID;
+                oConnection.Open();
+                using (DbDataReader oReader = oCommand.ExecuteReader())
+                {
+
+                }
+            }
+        }
+
+        public void EditTask(Entities.Task task)
+        {
+            string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet; User ID = vjezbe; Password = vjezbe";
+            using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
+            using (DbCommand oCommand = oConnection.CreateCommand())
+            {
+                oCommand.CommandText = "UPDATE Tasks_Tasks SET DESCRIPTION = '" + task.sDescription + "', TITLE = '" + task.sTitle + "', DEADLINE = '" + task.sDeadline + "' WHERE USER_ID = " + task.nID;
+                oConnection.Open();
+                using (DbDataReader oReader = oCommand.ExecuteReader())
+                {
+
+                }
+            }
+        }
+
+
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTester", "ConsoleAppTester\ConsoleAppTester.csproj", "{8FC60BC5-3D17-4440-9DF6-720FECB00C2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{39F9132F-9FB8-4BB1-A737-0D6A73971422}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8FC60BC5-3D17-4440-9DF6-720FECB00C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FC60BC5-3D17-4440-9DF6-720FECB00C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FC60BC5-3D17-4440-9DF6-720FECB00C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39F9132F-9FB8-4BB1-A737-0D6A73971422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F9132F-9FB8-4BB1-A737-0D6A73971422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F9132F-9FB8-4BB1-A737-0D6A73971422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F9132F-9FB8-4BB1-A737-0D6A73971422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

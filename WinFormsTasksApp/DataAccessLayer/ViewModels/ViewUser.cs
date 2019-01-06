@@ -10,8 +10,9 @@ namespace DataAccessLayer.ViewModels
     {
         public int nId { get; set; }
         public string sName { get; set; }
+        public string sSurname { get; set; }
         public string sUsername { get; set; }
         public string sPassword { get; set; }
-        public int nPassword { get; set; }
+       
     }
 }

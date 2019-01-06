@@ -14,7 +14,7 @@ namespace DataAccessLayer
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
 
 
-        public List<User> GetAll()
+        public List<User> GetUsers()
         {
             var users = new List<User>();
             using (DbConnection connection = new SqlConnection(connectionString))
@@ -29,22 +29,23 @@ namespace DataAccessLayer
                         users.Add(new User()
                         {
                             nId = (int)reader["ID"],
-                            sPassword = (string)reader["PASSWORD"],
+                            sName = (string)reader["NAME"],
+                            sSurname=(string)reader["SURNAME"],
                             sUsername = (string)reader["USERNAME"],
-                            sName = (string)reader["NAME"]
+                            sPassword = (string)reader["PASSWORD"]                     
                         });
                     }
                 }
             }
             return users;
         }
-        public void CreateUser(User user)
+        public void AddUser(User user)
         {
             string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet; User ID = vjezbe; Password = vjezbe";
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "INSERT INTO users (USERNAME, PASSWORD, NAME) VALUES ('" + user.sUsername + "','" + user.sPassword + "','" + user.sName + "')";
+                oCommand.CommandText = "INSERT INTO Tasks_Users (USERNAME, PASSWORD, NAME) VALUES ('" + user.sUsername + "','" + user.sPassword + "','" + user.sName + "')";
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {
@@ -53,13 +54,13 @@ namespace DataAccessLayer
             }
         }
 
-        public void UpdateUser(User user)
+        public void EditUser(User user)
         {
             string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet; User ID = vjezbe; Password = vjezbe";
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "UPDATE USERS SET NAME = '" + user.sName + "', USERNAME = '" + user.sUsername + "', PASSWORD = '" + user.sPassword + "' WHERE USER_ID = " + user.nId;
+                oCommand.CommandText = "UPDATE Tasks_Users SET NAME = '" + user.sName + "', USERNAME = '" + user.sUsername + "', PASSWORD = '" + user.sPassword + "' WHERE USER_ID = " + user.nId;
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {
@@ -74,7 +75,7 @@ namespace DataAccessLayer
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "DELETE FROM users WHERE USER_ID = " + user.nId;
+                oCommand.CommandText = "DELETE FROM Tasks_Users WHERE USER_ID = " + user.nId;
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {

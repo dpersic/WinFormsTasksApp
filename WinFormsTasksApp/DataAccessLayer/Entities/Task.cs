@@ -13,8 +13,6 @@ namespace DataAccessLayer.Entities
         public int nOwnerId { get; set; }
         public int nWorkerId { get; set; }
         public string sDescription { get; set; }
-
-
         public string sDeadline { get; set; }
         public int bActive { get; set; }
     }

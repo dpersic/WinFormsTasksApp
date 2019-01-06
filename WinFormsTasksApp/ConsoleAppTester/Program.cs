@@ -11,13 +11,13 @@ namespace ConsoleAppTester
     {
         static void Main(string[] args)
         {
-            /*var UsersRepo = new UserRepository();
-            var users = UsersRepo.GetAll();
+            var UsersRepo = new UserRepository();
+            var users = UsersRepo.GetUsers();
             Console.WriteLine("Ukupno: " + users.Count);
             foreach (var user in users)
             {
                 Console.WriteLine(user.sName);
-            }*/
+            }
             Console.ReadKey();
         }
     }

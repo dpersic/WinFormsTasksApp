@@ -14,6 +14,6 @@ namespace DataAccessLayer.ViewModels
         public Task  nOwnerId { get; set; } 
         public Task nWorkerId { get; set; }
         public string sDeadline { get; set; }
-        public bool bActive { get; set; }
+        public int bActive { get; set; }
     }
 }
