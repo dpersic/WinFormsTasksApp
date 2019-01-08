@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer;
+using DataAccessLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,7 @@ namespace PresentationLayer
 
         private void FormUsers_Load(object sender, EventArgs e)
         {
-          dataGridViewUsers.DataSource = _tableBindingSource;
+            dataGridViewUsers.DataSource = _tableBindingSource;
 
             DataGridViewImageColumn oEditButton = new DataGridViewImageColumn();
             oEditButton.Image = Image.FromFile("C:/Users/Domagoj/Source/Repos/NewRepo/WinFormsTasksApp/update.png");
@@ -41,11 +42,33 @@ namespace PresentationLayer
             dataGridViewUsers.AutoGenerateColumns = false;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (dataGridViewUsers.CurrentCell.ColumnIndex.Equals(5) && e.RowIndex != -1)
+            {
+                var userId = Convert.ToInt32(dataGridViewUsers.Rows[e.RowIndex].Cells[0].Value);
+                var userName = dataGridViewUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var userPassword = dataGridViewUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
+                var userFirstName = dataGridViewUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
+                var userLastName = dataGridViewUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
 
+                var user = new User
+                {
+                    nId = userId,
+                    sUsername = userName,
+                    sName = userFirstName,
+                    sSurname = userLastName,
+                    sPassword = userPassword
+                };
+                FormEditUser formEditUser = new FormEditUser(user, this);
+                formEditUser.Show();
+            }
         }
 
-       
+        private void btnNewUser_Click(object sender, EventArgs e)
+        {
+            FormAddUser formAddUser = new FormAddUser(this);
+            formAddUser.Show();
+        }
     }
 }

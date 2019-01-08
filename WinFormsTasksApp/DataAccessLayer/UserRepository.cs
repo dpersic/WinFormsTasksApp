@@ -83,5 +83,33 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        public void UpdateUser(User user)
+        {
+            string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
+            using (DbConnection oConnection = new SqlConnection(sSqlConnectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
+            {
+                oCommand.CommandText = "UPDATE Tasks_Users SET NAME = '" + user.sName + "', SURNAME = '" + user.sSurname + "', PASSWORD = '" + user.sPassword + "'WHERE ID = " + user.nId;
+                oConnection.Open();
+                using (DbDataReader oReader = oCommand.ExecuteReader())
+                {
+
+                }
+            }
+        }
+
+        public void CreateUser(User user)
+        {
+            string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
+            using (DbConnection oConnection = new SqlConnection(sSqlConnectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
+            {
+                oCommand.CommandText = "INSERT INTO Tasks_Users (USERNAME, PASSWORD, NAME, SURNAME) VALUES('" + user.sUsername + "', '" + user.sPassword + "', '" + user.sName + "', '" + user.sSurname + "')";
+                oConnection.Open();
+                using (DbDataReader oReader = oCommand.ExecuteReader())
+                {
+
+                }
+            }
+        }
     }
 }

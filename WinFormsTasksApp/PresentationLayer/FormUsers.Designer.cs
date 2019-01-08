@@ -57,7 +57,7 @@
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.Size = new System.Drawing.Size(595, 271);
             this.dataGridViewUsers.TabIndex = 0;
-            this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellContentClick);
             // 
             // Column1
             // 
@@ -97,6 +97,7 @@
             this.btnNewUser.TabIndex = 1;
             this.btnNewUser.Text = "Novi korisnik";
             this.btnNewUser.UseVisualStyleBackColor = true;
+            this.btnNewUser.Click += new System.EventHandler(this.btnNewUser_Click);
             // 
             // menuStrip1
             // 
@@ -147,7 +148,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormUsers";
-            this.Text = "Prikaz korisnika";
+            this.Text = "Tasks";
             this.Load += new System.EventHandler(this.FormUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.tabPage.ResumeLayout(false);

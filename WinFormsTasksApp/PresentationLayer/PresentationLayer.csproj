@@ -49,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddUser.Designer.cs">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditUser.Designer.cs">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +69,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddUser.resx">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditUser.resx">
+      <DependentUpon>FormEditUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>
     </EmbeddedResource>
