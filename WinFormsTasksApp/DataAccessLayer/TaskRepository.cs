@@ -30,11 +30,11 @@ namespace DataAccessLayer
                         {
                             nID=(int)reader["ID"],
                             nOwnerId=(int)reader["OWNER_ID"],
-                            nWorkerId=(int)reader["WORKSER_ID"],
+                            nWorkerId=(int)reader["WORKER_ID"],
                             sTitle=(string)reader["TITLE"],
-                            sDeadline=(string)reader["DEADLINE"],
+                            sDeadline=(DateTime)reader["DEADLINE"],
                             sDescription=(string)reader["DESCRIPTION"],
-                            bActive=(int)reader["ACTIVE"]
+                            nActive=(int)reader["ACTIVE"]
                         });
                     }
                 }
@@ -49,7 +49,7 @@ namespace DataAccessLayer
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "DELETE FROM Tasks_Tasks WHERE ID = " + task.nID;
+                oCommand.CommandText = "DELETE FROM Tasks_Tasks  ID = " + task.nID;
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {
@@ -64,7 +64,7 @@ namespace DataAccessLayer
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "UPDATE Tasks_Tasks SET DESCRIPTION = '" + task.sDescription + "', TITLE = '" + task.sTitle + "', DEADLINE = '" + task.sDeadline + "' WHERE USER_ID = " + task.nID;
+                oCommand.CommandText = "UPDATE Tasks_Tasks SET DESCRIPTION = '" + task.sDescription + "', TITLE = '" + task.sTitle + "', DEADLINE = '" + task.sDeadline + "' WHERE ID = " + task.nID;
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {

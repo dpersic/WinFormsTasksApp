@@ -26,6 +26,7 @@ namespace PresentationLayer
         private void FormUsers_Load(object sender, EventArgs e)
         {
             dataGridViewUsers.DataSource = _tableBindingSource;
+         
 
             DataGridViewImageColumn oEditButton = new DataGridViewImageColumn();
             oEditButton.Image = Image.FromFile("C:/Users/Domagoj/Source/Repos/NewRepo/WinFormsTasksApp/update.png");

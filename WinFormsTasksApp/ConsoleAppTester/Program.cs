@@ -11,12 +11,22 @@ namespace ConsoleAppTester
     {
         static void Main(string[] args)
         {
-            var UsersRepo = new UserRepository();
-            var users = UsersRepo.GetUsers();
-            Console.WriteLine("Ukupno: " + users.Count);
-            foreach (var user in users)
+            /* var UsersRepo = new UserRepository();
+             var users = UsersRepo.GetUsers();
+             Console.WriteLine("Ukupno: " + users.Count);
+             foreach (var user in users)
+             {
+                 Console.WriteLine(user.sName);
+             }*/
+
+
+
+            var TaskRepo = new TaskRepository();
+            var tasks = TaskRepo.GetTasks();
+            Console.WriteLine("Total tasks: " + tasks.Count);
+            foreach (var task in tasks)
             {
-                Console.WriteLine(user.sName);
+                Console.WriteLine(  task.nActive);
             }
             Console.ReadKey();
         }

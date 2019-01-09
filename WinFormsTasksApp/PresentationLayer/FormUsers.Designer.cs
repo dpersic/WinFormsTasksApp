@@ -39,9 +39,19 @@
             this.tabPage = new System.Windows.Forms.TabControl();
             this.Korisnici = new System.Windows.Forms.TabPage();
             this.tabPageTasks = new System.Windows.Forms.TabPage();
+            this.dataGridViewTasks = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.tabPage.SuspendLayout();
             this.Korisnici.SuspendLayout();
+            this.tabPageTasks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewUsers
@@ -103,7 +113,7 @@
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(867, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1059, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -131,6 +141,7 @@
             // 
             // tabPageTasks
             // 
+            this.tabPageTasks.Controls.Add(this.dataGridViewTasks);
             this.tabPageTasks.Location = new System.Drawing.Point(4, 22);
             this.tabPageTasks.Name = "tabPageTasks";
             this.tabPageTasks.Padding = new System.Windows.Forms.Padding(3);
@@ -139,11 +150,67 @@
             this.tabPageTasks.Text = "Zadaci";
             this.tabPageTasks.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewTasks
+            // 
+            this.dataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12});
+            this.dataGridViewTasks.Location = new System.Drawing.Point(6, 26);
+            this.dataGridViewTasks.Name = "dataGridViewTasks";
+            this.dataGridViewTasks.Size = new System.Drawing.Size(784, 289);
+            this.dataGridViewTasks.TabIndex = 0;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "ID";
+            this.Column6.HeaderText = "Rbr";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Naziv zadatka";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "TITLE";
+            this.Column8.HeaderText = "Opis zadatka";
+            this.Column8.Name = "Column8";
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "DEADLINE";
+            this.Column9.HeaderText = "Krajnji rok";
+            this.Column9.Name = "Column9";
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "OWNER_ID";
+            this.Column10.HeaderText = "Vlasnik";
+            this.Column10.Name = "Column10";
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "WORKER_ID";
+            this.Column11.HeaderText = "Radnik";
+            this.Column11.Name = "Column11";
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Aktivnost";
+            this.Column12.Name = "Column12";
+            // 
             // FormUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(867, 459);
+            this.ClientSize = new System.Drawing.Size(1059, 459);
             this.Controls.Add(this.tabPage);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -153,6 +220,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.tabPage.ResumeLayout(false);
             this.Korisnici.ResumeLayout(false);
+            this.tabPageTasks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,6 +240,14 @@
         private System.Windows.Forms.TabControl tabPage;
         private System.Windows.Forms.TabPage Korisnici;
         private System.Windows.Forms.TabPage tabPageTasks;
+        private System.Windows.Forms.DataGridView dataGridViewTasks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
     }
 }
 
