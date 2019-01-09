@@ -35,7 +35,7 @@ namespace PresentationLayer
             _user.sPassword = inptNewPassword.Text;
             _user.sName = inptNewName.Text;
             _user.sSurname = inptNewLastName.Text;
-            _userRepository.UpdateUser(_user);
+            _userRepository.AddUser( _user );
             this.Hide();
             _formUsers._tableBindingSource.DataSource = _userRepository.GetUsers();
         }

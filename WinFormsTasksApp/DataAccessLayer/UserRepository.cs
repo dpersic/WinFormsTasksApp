@@ -45,7 +45,7 @@ namespace DataAccessLayer
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "INSERT INTO Tasks_Users (USERNAME, PASSWORD, NAME) VALUES ('" + user.sUsername + "','" + user.sPassword + "','" + user.sName + "')";
+                oCommand.CommandText = "INSERT INTO Tasks_Users (USERNAME, PASSWORD,SURNAME, NAME) VALUES('" + user.sUsername + "','" + user.sPassword + "','" + user.sSurname + "','" + user.sName + "')";
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {
@@ -60,7 +60,7 @@ namespace DataAccessLayer
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "UPDATE Tasks_Users SET NAME = '" + user.sName + "', USERNAME = '" + user.sUsername + "', PASSWORD = '" + user.sPassword + "' WHERE USER_ID = " + user.nId;
+                oCommand.CommandText = "UPDATE Tasks_Users SET NAME = '" + user.sName + "', USERNAME = '" + user.sUsername + "', PASSWORD = '" + user.sPassword + "' WHERE ID = " + user.nId;
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {
@@ -75,7 +75,7 @@ namespace DataAccessLayer
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
             using (DbCommand oCommand = oConnection.CreateCommand())
             {
-                oCommand.CommandText = "DELETE FROM Tasks_Users WHERE USER_ID = " + user.nId;
+                oCommand.CommandText = "DELETE FROM Tasks_Users WHERE ID = " + user.nId;
                 oConnection.Open();
                 using (DbDataReader oReader = oCommand.ExecuteReader())
                 {
