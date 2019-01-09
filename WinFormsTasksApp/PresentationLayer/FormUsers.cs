@@ -63,6 +63,27 @@ namespace PresentationLayer
                 FormEditUser formEditUser = new FormEditUser(user, this);
                 formEditUser.Show();
             }
+
+            if (dataGridViewUsers.CurrentCell.ColumnIndex.Equals(6) && e.RowIndex != -1)
+            {
+                var userId = Convert.ToInt32(dataGridViewUsers.Rows[e.RowIndex].Cells[0].Value);
+                var userName = dataGridViewUsers.Rows[e.RowIndex].Cells[1].Value.ToString();
+                var userFirstName = dataGridViewUsers.Rows[e.RowIndex].Cells[3].Value.ToString();
+                var userLastName = dataGridViewUsers.Rows[e.RowIndex].Cells[4].Value.ToString();
+                var userPassword = dataGridViewUsers.Rows[e.RowIndex].Cells[2].Value.ToString();
+
+                var user = new User
+                {
+                    nId = userId,
+                    sUsername = userName,
+                    sName = userFirstName,
+                    sSurname = userLastName,
+                    sPassword = userPassword
+                };
+
+                FormDeleteUser formDeleteUser = new FormDeleteUser(user, this);
+                formDeleteUser.Show();
+            }
         }
 
         private void btnNewUser_Click(object sender, EventArgs e)
