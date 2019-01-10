@@ -17,16 +17,22 @@ namespace PresentationLayer
     {
         public UserRepository _userRepository = new UserRepository();
         public BindingSource _tableBindingSource = new BindingSource();
+
+
+        public TaskRepository _taskRepositroy = new TaskRepository();
+        public BindingSource _tableTaskBindingSource = new BindingSource();
+
         public FormUsers()
         {
             InitializeComponent();
             _tableBindingSource.DataSource = _userRepository.GetUsers();
+            _tableTaskBindingSource.DataSource = _taskRepositroy.GetTasks();
         }
 
         private void FormUsers_Load(object sender, EventArgs e)
         {
             dataGridViewUsers.DataSource = _tableBindingSource;
-         
+            dataGridViewTasks.DataSource = _tableTaskBindingSource;         
 
             DataGridViewImageColumn oEditButton = new DataGridViewImageColumn();
             oEditButton.Image = Image.FromFile("C:/Users/Domagoj/Source/Repos/NewRepo/WinFormsTasksApp/update.png");
@@ -91,6 +97,16 @@ namespace PresentationLayer
         {
             FormAddUser formAddUser = new FormAddUser(this);
             formAddUser.Show();
+        }
+
+        private void oProgramuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(" Create by: Domagoj Peršić \n Version: 1.00 \n Author: Domagoj Peršić  \n Year: 2019.");
+        }
+
+        private void izlazToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

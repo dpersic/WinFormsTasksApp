@@ -47,7 +47,11 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.izbonikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oProgramuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.tabPage.SuspendLayout();
             this.Korisnici.SuspendLayout();
             this.tabPageTasks.SuspendLayout();
@@ -111,6 +115,8 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.izbonikToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1059, 24);
@@ -121,10 +127,10 @@
             // 
             this.tabPage.Controls.Add(this.Korisnici);
             this.tabPage.Controls.Add(this.tabPageTasks);
-            this.tabPage.Location = new System.Drawing.Point(12, 12);
+            this.tabPage.Location = new System.Drawing.Point(12, 39);
             this.tabPage.Name = "tabPage";
             this.tabPage.SelectedIndex = 0;
-            this.tabPage.Size = new System.Drawing.Size(804, 412);
+            this.tabPage.Size = new System.Drawing.Size(1025, 385);
             this.tabPage.TabIndex = 3;
             // 
             // Korisnici
@@ -145,7 +151,7 @@
             this.tabPageTasks.Location = new System.Drawing.Point(4, 22);
             this.tabPageTasks.Name = "tabPageTasks";
             this.tabPageTasks.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageTasks.Size = new System.Drawing.Size(796, 386);
+            this.tabPageTasks.Size = new System.Drawing.Size(1017, 359);
             this.tabPageTasks.TabIndex = 1;
             this.tabPageTasks.Text = "Zadaci";
             this.tabPageTasks.UseVisualStyleBackColor = true;
@@ -163,48 +169,73 @@
             this.Column12});
             this.dataGridViewTasks.Location = new System.Drawing.Point(6, 26);
             this.dataGridViewTasks.Name = "dataGridViewTasks";
-            this.dataGridViewTasks.Size = new System.Drawing.Size(784, 289);
+            this.dataGridViewTasks.Size = new System.Drawing.Size(864, 289);
             this.dataGridViewTasks.TabIndex = 0;
             // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "ID";
+            this.Column6.DataPropertyName = "nID";
             this.Column6.HeaderText = "Rbr";
             this.Column6.Name = "Column6";
             // 
             // Column7
             // 
+            this.Column7.DataPropertyName = "sTitle";
             this.Column7.HeaderText = "Naziv zadatka";
             this.Column7.Name = "Column7";
             // 
             // Column8
             // 
-            this.Column8.DataPropertyName = "TITLE";
+            this.Column8.DataPropertyName = "sDescription";
             this.Column8.HeaderText = "Opis zadatka";
             this.Column8.Name = "Column8";
             // 
             // Column9
             // 
-            this.Column9.DataPropertyName = "DEADLINE";
+            this.Column9.DataPropertyName = "sDeadline";
             this.Column9.HeaderText = "Krajnji rok";
             this.Column9.Name = "Column9";
             // 
             // Column10
             // 
-            this.Column10.DataPropertyName = "OWNER_ID";
+            this.Column10.DataPropertyName = "nOwnerId";
             this.Column10.HeaderText = "Vlasnik";
             this.Column10.Name = "Column10";
             // 
             // Column11
             // 
-            this.Column11.DataPropertyName = "WORKER_ID";
+            this.Column11.DataPropertyName = "nWorkerId";
             this.Column11.HeaderText = "Radnik";
             this.Column11.Name = "Column11";
             // 
             // Column12
             // 
+            this.Column12.DataPropertyName = "nActive";
             this.Column12.HeaderText = "Aktivnost";
             this.Column12.Name = "Column12";
+            // 
+            // izbonikToolStripMenuItem
+            // 
+            this.izbonikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oProgramuToolStripMenuItem,
+            this.izlazToolStripMenuItem});
+            this.izbonikToolStripMenuItem.Name = "izbonikToolStripMenuItem";
+            this.izbonikToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.izbonikToolStripMenuItem.Text = "Izbonik";
+            // 
+            // oProgramuToolStripMenuItem
+            // 
+            this.oProgramuToolStripMenuItem.Name = "oProgramuToolStripMenuItem";
+            this.oProgramuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oProgramuToolStripMenuItem.Text = "O programu";
+            this.oProgramuToolStripMenuItem.Click += new System.EventHandler(this.oProgramuToolStripMenuItem_Click);
+            // 
+            // izlazToolStripMenuItem
+            // 
+            this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
+            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.izlazToolStripMenuItem.Text = "Izlaz";
+            this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
             // 
             // FormUsers
             // 
@@ -218,6 +249,8 @@
             this.Text = "Tasks";
             this.Load += new System.EventHandler(this.FormUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.tabPage.ResumeLayout(false);
             this.Korisnici.ResumeLayout(false);
             this.tabPageTasks.ResumeLayout(false);
@@ -248,6 +281,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.ToolStripMenuItem izbonikToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oProgramuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem izlazToolStripMenuItem;
     }
 }
 
