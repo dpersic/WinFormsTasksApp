@@ -11,9 +11,10 @@ namespace DataAccessLayer.ViewModels
     {
        
         public string sTitle { get; set; }
-        public Task  nOwnerId { get; set; } 
-        public Task nWorkerId { get; set; }
-        public string sDeadline { get; set; }
-        public int bActive { get; set; }
+        public string sDescription { get; set; }
+        public int  nOwnerID { get; set; } // jel je potrebno staviti string sOwnerName
+        public int nWorkerID { get; set; }
+        public DateTime sDeadline { get; set; }
+        public int nActive { get; set; }
     }
 }

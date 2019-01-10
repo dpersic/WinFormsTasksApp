@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer;
 
 namespace DataAccessLayer
 {
@@ -13,6 +14,37 @@ namespace DataAccessLayer
     {
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
 
+        public List<Entities.Task> _tasks = new List<Entities.Task>();
+        public TaskRepository tasksRepository = new TaskRepository();
+
+       /* public List<Entities.User> _users = new List<Entities.User>();
+        public UserRepository usersRepositry = new UserRepository();*/
+
+        public TaskRepository()
+        {
+            _tasks = GetTasks();
+        }
+
+       /* public UserRepository()
+        {
+           
+        }*/
+
+     /*  public List<ViewModels.ViewTask> GetOwnerWorker(int nID)
+            {
+             var tasks = tasksRepository.GetTasks();
+             var tasksOwnerWorker = _tasks.Where(x => x.nID == nID).Select(x => new ViewModels.ViewTask
+            {
+                
+                sTitle=x.sTitle,
+                sDescription= x.sDescription,
+                nOwnerID=
+
+                
+
+            }).ToList();
+            return tasksOwnerWorker;
+            }*/
 
         public List<Entities.Task> GetTasks()
         {
