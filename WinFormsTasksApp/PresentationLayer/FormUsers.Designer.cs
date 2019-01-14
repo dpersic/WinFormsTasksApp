@@ -36,6 +36,9 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewUser = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.izbonikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oProgramuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage = new System.Windows.Forms.TabControl();
             this.Korisnici = new System.Windows.Forms.TabPage();
             this.tabPageTasks = new System.Windows.Forms.TabPage();
@@ -47,9 +50,6 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.izbonikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oProgramuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.tabPage.SuspendLayout();
@@ -123,6 +123,29 @@
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // izbonikToolStripMenuItem
+            // 
+            this.izbonikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oProgramuToolStripMenuItem,
+            this.izlazToolStripMenuItem});
+            this.izbonikToolStripMenuItem.Name = "izbonikToolStripMenuItem";
+            this.izbonikToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.izbonikToolStripMenuItem.Text = "Izbonik";
+            // 
+            // oProgramuToolStripMenuItem
+            // 
+            this.oProgramuToolStripMenuItem.Name = "oProgramuToolStripMenuItem";
+            this.oProgramuToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.oProgramuToolStripMenuItem.Text = "O programu";
+            this.oProgramuToolStripMenuItem.Click += new System.EventHandler(this.oProgramuToolStripMenuItem_Click);
+            // 
+            // izlazToolStripMenuItem
+            // 
+            this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
+            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.izlazToolStripMenuItem.Text = "Izlaz";
+            this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
+            // 
             // tabPage
             // 
             this.tabPage.Controls.Add(this.Korisnici);
@@ -140,7 +163,7 @@
             this.Korisnici.Location = new System.Drawing.Point(4, 22);
             this.Korisnici.Name = "Korisnici";
             this.Korisnici.Padding = new System.Windows.Forms.Padding(3);
-            this.Korisnici.Size = new System.Drawing.Size(796, 386);
+            this.Korisnici.Size = new System.Drawing.Size(1017, 359);
             this.Korisnici.TabIndex = 0;
             this.Korisnici.Text = "Korisnici";
             this.Korisnici.UseVisualStyleBackColor = true;
@@ -213,29 +236,6 @@
             this.Column12.DataPropertyName = "nActive";
             this.Column12.HeaderText = "Aktivnost";
             this.Column12.Name = "Column12";
-            // 
-            // izbonikToolStripMenuItem
-            // 
-            this.izbonikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.oProgramuToolStripMenuItem,
-            this.izlazToolStripMenuItem});
-            this.izbonikToolStripMenuItem.Name = "izbonikToolStripMenuItem";
-            this.izbonikToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.izbonikToolStripMenuItem.Text = "Izbonik";
-            // 
-            // oProgramuToolStripMenuItem
-            // 
-            this.oProgramuToolStripMenuItem.Name = "oProgramuToolStripMenuItem";
-            this.oProgramuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.oProgramuToolStripMenuItem.Text = "O programu";
-            this.oProgramuToolStripMenuItem.Click += new System.EventHandler(this.oProgramuToolStripMenuItem_Click);
-            // 
-            // izlazToolStripMenuItem
-            // 
-            this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
-            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.izlazToolStripMenuItem.Text = "Izlaz";
-            this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
             // 
             // FormUsers
             // 
