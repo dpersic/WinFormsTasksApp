@@ -30,9 +30,9 @@ namespace DataAccessLayer
                         {
                             nId = (int)reader["ID"],
                             sName = (string)reader["NAME"],
-                            sSurname=(string)reader["SURNAME"],
+                            sSurname = (string)reader["SURNAME"],
                             sUsername = (string)reader["USERNAME"],
-                            sPassword = (string)reader["PASSWORD"]                     
+                            sPassword = (string)reader["PASSWORD"]
                         });
                     }
                 }
@@ -111,5 +111,18 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        /* public void LoginUser(User user)
+         {
+             string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
+             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString)) using (DbCommand oCommand = oConnection.CreateCommand())
+             {
+                 oCommand.CommandText = "INSERT INTO Tasks_Users (USERNAME, PASSWORD, NAME, SURNAME) VALUES('" + user.sUsername + "', '" + user.sPassword + "', '" + user.sName + "', '" + user.sSurname + "')";
+                 oConnection.Open();
+                 using (DbDataReader oReader = oCommand.ExecuteReader())
+                 {
+
+                 }
+             }*/
     }
 }
