@@ -31,6 +31,8 @@ namespace PresentationLayer
 
         private void FormUsers_Load(object sender, EventArgs e)
         {
+            
+           
             dataGridViewUsers.DataSource = _tableBindingSource;
             dataGridViewTasks.DataSource = _tableTaskBindingSource;         
 
@@ -109,6 +111,9 @@ namespace PresentationLayer
             Application.Exit();
         }
 
-  
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

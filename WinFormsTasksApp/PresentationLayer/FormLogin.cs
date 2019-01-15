@@ -27,9 +27,11 @@ namespace PresentationLayer
             if (dt.Rows.Count == 1)
             {
                 this.Hide();
+                FormUsers login = new FormUsers();
+                login.Show();
                 //SoccerSeasonsForm ss = new SoccerSeasonsForm(dt.Rows[0][0].ToString());
-              //  FormUsers pogled = new FormUsers(dt.Rows[0][0].ToString());
-              //  pogled.Show();
+                //  FormUsers pogled = new FormUsers(dt.Rows[0][0].ToString());
+                //  pogled.Show();
             }
             else
             {
