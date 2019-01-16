@@ -20,18 +20,16 @@ namespace PresentationLayer
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection( "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe");
+            SqlConnection con = new SqlConnection("Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe");
             SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT (*) From Tasks_Users Where USERNAME='" + textBoxUserName.Text + "' and PASSWORD='" + textBoxUserPassword.Text + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            if (dt.Rows.Count == 1)
+            if (dt.Rows[0][0].ToString() == "1")
             {
                 this.Hide();
-                FormUsers login = new FormUsers();
-                login.Show();
-                //SoccerSeasonsForm ss = new SoccerSeasonsForm(dt.Rows[0][0].ToString());
-                //  FormUsers pogled = new FormUsers(dt.Rows[0][0].ToString());
-                //  pogled.Show();
+                FormUsers formUsers = new FormUsers();
+                formUsers.Show();
+              
             }
             else
             {

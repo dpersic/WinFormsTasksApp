@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Entities\Task.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="OwnerTaskRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskRepository.cs" />
     <Compile Include="UserRepository.cs" />

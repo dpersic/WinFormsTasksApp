@@ -17,6 +17,7 @@ namespace PresentationLayer
     {
         public UserRepository _userRepository = new UserRepository();
         public BindingSource _tableBindingSource = new BindingSource();
+        public OwnerTaskRepository _ownerTaskRepository = new OwnerTaskRepository();
 
 
         public TaskRepository _taskRepositroy = new TaskRepository();
@@ -26,15 +27,22 @@ namespace PresentationLayer
         {
             InitializeComponent();
             _tableBindingSource.DataSource = _userRepository.GetUsers();
+
             _tableTaskBindingSource.DataSource = _taskRepositroy.GetTasks();
+
+
+            for (int i = 0; i < dataGridViewTasks.RowCount - 1; i++)
+            {
+                int ownerId = Convert.ToInt32(dataGridViewTasks.Rows[i].Cells[3].Value);
+
+                _tableTaskBindingSource.DataSource = _ownerTaskRepository.GetOwnerTasks(ownerId);
+            }
         }
 
         private void FormUsers_Load(object sender, EventArgs e)
-        {
-            
-           
+        {      
             dataGridViewUsers.DataSource = _tableBindingSource;
-            dataGridViewTasks.DataSource = _tableTaskBindingSource;         
+            dataGridViewTasks.DataSource = _tableTaskBindingSource;
 
             DataGridViewImageColumn oEditButton = new DataGridViewImageColumn();
             oEditButton.Image = Image.FromFile("C:/Users/Domagoj/Source/Repos/NewRepo/WinFormsTasksApp/update.png");
@@ -111,9 +119,15 @@ namespace PresentationLayer
             Application.Exit();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void dataGridViewTasks_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(dataGridViewTasks.CurrentCell.ColumnIndex.Equals(2)&&e.RowIndex !=-1)
+            {
+                var IdOwner = Convert.ToInt32(dataGridViewTasks.Rows[e.RowIndex].Cells[0].Value);
 
+                OwnerTasks formTasks = new OwnerTasks(IdOwner);
+                formTasks.Show();
+            }
         }
     }
 }

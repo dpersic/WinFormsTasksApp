@@ -15,36 +15,20 @@ namespace DataAccessLayer
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
 
         public List<Entities.Task> _tasks = new List<Entities.Task>();
-        public TaskRepository tasksRepository = new TaskRepository();
+        
 
-       /* public List<Entities.User> _users = new List<Entities.User>();
-        public UserRepository usersRepositry = new UserRepository();*/
+         public List<Entities.User> _users = new List<Entities.User>();
+         public UserRepository usersRepositry = new UserRepository();
 
         public TaskRepository()
         {
             _tasks = GetTasks();
         }
 
-       /* public UserRepository()
-        {
-           
-        }*/
+        /* public UserRepository()
+         {
 
-     /*  public List<ViewModels.ViewTask> GetOwnerWorker(int nID)
-            {
-             var tasks = tasksRepository.GetTasks();
-             var tasksOwnerWorker = _tasks.Where(x => x.nID == nID).Select(x => new ViewModels.ViewTask
-            {
-                
-                sTitle=x.sTitle,
-                sDescription= x.sDescription,
-                nOwnerID=
-
-                
-
-            }).ToList();
-            return tasksOwnerWorker;
-            }*/
+         }*/
 
         public List<Entities.Task> GetTasks()
         {
@@ -60,13 +44,13 @@ namespace DataAccessLayer
                     {
                         tasks.Add(new Entities.Task()
                         {
-                            nID=(int)reader["ID"],
-                            nOwnerId=(int)reader["OWNER_ID"],
-                            nWorkerId=(int)reader["WORKER_ID"],
-                            sTitle=(string)reader["TITLE"],
-                            sDeadline=(DateTime)reader["DEADLINE"],
-                            sDescription=(string)reader["DESCRIPTION"],
-                            nActive=(int)reader["ACTIVE"]
+                            nID = (int)reader["ID"],
+                            nOwnerId = (int)reader["OWNER_ID"],
+                            nWorkerId = (int)reader["WORKER_ID"],
+                            sTitle = (string)reader["TITLE"],
+                            sDeadline = (DateTime)reader["DEADLINE"],
+                            sDescription = (string)reader["DESCRIPTION"],
+                            nActive = (int)reader["ACTIVE"]
                         });
                     }
                 }

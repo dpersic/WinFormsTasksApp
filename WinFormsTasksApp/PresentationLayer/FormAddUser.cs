@@ -17,7 +17,7 @@ namespace PresentationLayer
         User _user = new User();
         FormUsers _formUsers = new FormUsers();
         private UserRepository _userRepository = new UserRepository();
-        
+
         public FormAddUser(FormUsers formUsers)
         {
             _formUsers = formUsers;
@@ -35,7 +35,7 @@ namespace PresentationLayer
             _user.sPassword = inptNewPassword.Text;
             _user.sName = inptNewName.Text;
             _user.sSurname = inptNewLastName.Text;
-            _userRepository.AddUser( _user );
+            _userRepository.AddUser(_user);
             this.Hide();
             _formUsers._tableBindingSource.DataSource = _userRepository.GetUsers();
         }

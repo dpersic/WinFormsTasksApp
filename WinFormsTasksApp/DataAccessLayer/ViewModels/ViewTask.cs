@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
+using DataAccessLayer.Entities;
 
 namespace DataAccessLayer.ViewModels
 {
@@ -12,8 +13,8 @@ namespace DataAccessLayer.ViewModels
        
         public string sTitle { get; set; }
         public string sDescription { get; set; }
-        public int  nOwnerID { get; set; } // jel je potrebno staviti string sOwnerName
-        public int nWorkerID { get; set; }
+        public string  sOwner { get; set; } // jel je potrebno staviti string sOwnerName
+        public string sWorker { get; set; }
         public DateTime sDeadline { get; set; }
         public int nActive { get; set; }
     }
