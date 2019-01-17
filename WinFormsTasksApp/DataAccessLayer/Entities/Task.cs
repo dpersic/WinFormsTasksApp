@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Entities
 {
-    public class Task
+    public class ViewTask
     {
         public int nID { get; set; }
         public string sTitle { get; set; }

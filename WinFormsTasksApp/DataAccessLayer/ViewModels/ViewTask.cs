@@ -17,5 +17,6 @@ namespace DataAccessLayer.ViewModels
         public string sWorker { get; set; }
         public DateTime sDeadline { get; set; }
         public int nActive { get; set; }
+        public List<ViewModels.ViewTask> OwnerTasks { get; set; }
     }
 }

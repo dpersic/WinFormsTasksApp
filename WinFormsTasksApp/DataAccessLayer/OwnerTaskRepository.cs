@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
 using System.Data.SqlClient;
+using DataAccessLayer.ViewModels;
 
 namespace DataAccessLayer
 {
@@ -13,10 +14,27 @@ namespace DataAccessLayer
     {
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
         public TaskRepository tasksRepositry = new TaskRepository();
-        public List<Entities.Task> _tasks = new List<Entities.Task>();
+        public List<Entities.ViewTask> _tasks = new List<Entities.ViewTask>();
         public UserRepository userRepository = new UserRepository();
 
+        public OwnerTaskRepository()
+        {
+            
+        }
 
+        public List<ViewTask> GetAll()
+        {
+            var tasks= userRepository.GetUsers();
+            var zadaci = _tasks.Select(o => new ViewTask
+            {
+                sTitle = o.sTitle,
+                sDescription = o.sDescription,
+                sDeadline = o.sDeadline,
+                sOwner = tasks.Where(c => c.nId == o.nOwnerId).Select(c => c.sName + " " + c.sSurname).FirstOrDefault(),
+                
+            }).ToList();
+            return zadaci;          
+        }
 
         public List<ViewModels.ViewTask> GetOwnerTasks(int ownerID)
         {
@@ -33,9 +51,9 @@ namespace DataAccessLayer
         }
 
             
-        public List<Entities.Task> GetTasksOwner(int idOwner)
+        public List<Entities.ViewTask> GetTasksOwner(int idOwner)
         {
-            var tasks = new List<Entities.Task>();
+            var tasks = new List<Entities.ViewTask>();
             using (DbConnection connection = new SqlConnection(connectionString))
             using (DbCommand command = connection.CreateCommand())
             {
@@ -45,7 +63,7 @@ namespace DataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        tasks.Add(new Entities.Task()
+                        tasks.Add(new Entities.ViewTask()
                         {
                             nID = (int)reader["ID"],
                             nOwnerId = (int)reader["OWNER_ID"],

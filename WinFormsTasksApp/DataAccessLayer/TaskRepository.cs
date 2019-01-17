@@ -14,7 +14,7 @@ namespace DataAccessLayer
     {
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
 
-        public List<Entities.Task> _tasks = new List<Entities.Task>();
+        public List<Entities.ViewTask> _tasks = new List<Entities.ViewTask>();
         
 
          public List<Entities.User> _users = new List<Entities.User>();
@@ -25,14 +25,11 @@ namespace DataAccessLayer
             _tasks = GetTasks();
         }
 
-        /* public UserRepository()
-         {
 
-         }*/
 
-        public List<Entities.Task> GetTasks()
+        public List<Entities.ViewTask> GetTasks()
         {
-            var tasks = new List<Entities.Task>();
+            var tasks = new List<Entities.ViewTask>();
             using (DbConnection connection = new SqlConnection(connectionString))
             using (DbCommand command = connection.CreateCommand())
             {
@@ -42,7 +39,7 @@ namespace DataAccessLayer
                 {
                     while (reader.Read())
                     {
-                        tasks.Add(new Entities.Task()
+                        tasks.Add(new Entities.ViewTask()
                         {
                             nID = (int)reader["ID"],
                             nOwnerId = (int)reader["OWNER_ID"],
@@ -58,8 +55,8 @@ namespace DataAccessLayer
             return tasks;
         }
 
-
-        public void DeleteTask(Entities.Task task)
+    
+        public void DeleteTask(Entities.ViewTask task)
         {
             string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet; User ID = vjezbe; Password = vjezbe";
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
@@ -74,7 +71,7 @@ namespace DataAccessLayer
             }
         }
 
-        public void EditTask(Entities.Task task)
+        public void EditTask(Entities.ViewTask task)
         {
             string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet; User ID = vjezbe; Password = vjezbe";
             using (DbConnection oConnection = new SqlConnection(sSqlConnectionString))
