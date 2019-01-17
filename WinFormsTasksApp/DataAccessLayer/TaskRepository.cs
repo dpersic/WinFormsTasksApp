@@ -13,27 +13,23 @@ namespace DataAccessLayer
     public class TaskRepository
     {
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
+      //  public List<Entities.ViewTask> _tasks = new List<Entities.ViewTask>();
 
-        public List<Entities.ViewTask> _tasks = new List<Entities.ViewTask>();
-        
 
-         public List<Entities.User> _users = new List<Entities.User>();
-         public UserRepository usersRepositry = new UserRepository();
-
+   
         public TaskRepository()
         {
-            _tasks = GetTasks();
+          //  _userId = userId;
+           // _tasks = GetTasks(userId);
         }
-
-
-
-        public List<Entities.ViewTask> GetTasks()
+     
+        public List<Entities.ViewTask> GetTasks(int userId)
         {
             var tasks = new List<Entities.ViewTask>();
             using (DbConnection connection = new SqlConnection(connectionString))
             using (DbCommand command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM Tasks_Tasks";
+                command.CommandText = "SELECT * FROM Tasks_Tasks where OWNER_ID ="+ userId + "";
                 connection.Open();
                 using (DbDataReader reader = command.ExecuteReader())
                 {
@@ -55,7 +51,6 @@ namespace DataAccessLayer
             return tasks;
         }
 
-    
         public void DeleteTask(Entities.ViewTask task)
         {
             string sSqlConnectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet; User ID = vjezbe; Password = vjezbe";

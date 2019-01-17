@@ -19,7 +19,8 @@ namespace PresentationLayer
         public OwnerTasks(int idOwner)
         {
             InitializeComponent();
-            _tasksBindingSource.DataSource = _tasksRepo.GetOwnerTasks(idOwner);
+            //_tasksBindingSource.DataSource = _tasksRepo.GetOwnerTasks(idOwner);
+            _tasksBindingSource.DataSource = _tasksRepo.GetAllName();
         }
 
         private void OwnerTasks_Load(object sender, EventArgs e)

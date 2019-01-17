@@ -13,51 +13,38 @@ namespace DataAccessLayer
     public  class OwnerTaskRepository
     {
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
-        public TaskRepository tasksRepositry = new TaskRepository();
+       // public TaskRepository tasksRepositry = new TaskRepository();
+
         public List<Entities.ViewTask> _tasks = new List<Entities.ViewTask>();
         public UserRepository userRepository = new UserRepository();
 
-        public OwnerTaskRepository()
-        {
-            
-        }
 
-        public List<ViewTask> GetAll()
+        public List<ViewModels.ViewTask> GetAllName()
         {
-            var tasks= userRepository.GetUsers();
-            var zadaci = _tasks.Select(o => new ViewTask
+            var users = userRepository.GetUsers();
+            var tasks = _tasks.Select(o => new ViewModels.ViewTask
             {
                 sTitle = o.sTitle,
                 sDescription = o.sDescription,
                 sDeadline = o.sDeadline,
-                sOwner = tasks.Where(c => c.nId == o.nOwnerId).Select(c => c.sName + " " + c.sSurname).FirstOrDefault(),
-                
+                sOwner = users.Where(u => u.nId == o.nOwnerId).Select(u => u.sName + " " + u.sSurname).FirstOrDefault().ToString(),          
             }).ToList();
-            return zadaci;          
+            return tasks;
         }
 
-        public List<ViewModels.ViewTask> GetOwnerTasks(int ownerID)
+       /* public List<ViewModels.ViewUser>GetUsers(int userID)
         {
-            var tasks = userRepository.GetUsers();
-            var tasksOwnerWorker = _tasks.Where(x => x.nID == ownerID).Select(x => new ViewModels.ViewTask
-            {
+        
+        }*/
 
-                sTitle = x.sTitle,
-                sDescription = x.sDescription,
-                sOwner = tasks.Where(t => t.nId == x.nOwnerId).Select(t => t.sUsername).FirstOrDefault()
 
-            }).ToList();
-            return tasksOwnerWorker;
-        }
-
-            
         public List<Entities.ViewTask> GetTasksOwner(int idOwner)
         {
             var tasks = new List<Entities.ViewTask>();
             using (DbConnection connection = new SqlConnection(connectionString))
             using (DbCommand command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM Tasks_Tasks";
+                command.CommandText = "SELECT * FROM Tasks_Tasks ";
                 connection.Open();
                 using (DbDataReader reader = command.ExecuteReader())
                 {

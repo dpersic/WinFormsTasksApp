@@ -17,26 +17,31 @@ namespace PresentationLayer
     {
         public UserRepository _userRepository = new UserRepository();
         public BindingSource _tableBindingSource = new BindingSource();
-        public OwnerTaskRepository _ownerTaskRepository = new OwnerTaskRepository();
+
+        //public OwnerTaskRepository _ownerTaskRepository = new OwnerTaskRepository();
+        // public BindingSource _tableTasksBindingsource = new BindingSource();
 
 
         public TaskRepository _taskRepositroy = new TaskRepository();
         public BindingSource _tableTaskBindingSource = new BindingSource();
 
-        public FormUsers()
+        public FormUsers(int userId)
         {
+            MessageBox.Show(userId.ToString());
             InitializeComponent();
+
             _tableBindingSource.DataSource = _userRepository.GetUsers();
+            _tableTaskBindingSource.DataSource = _taskRepositroy.GetTasks(userId); //userId--> prenjti ID
 
-            _tableTaskBindingSource.DataSource = _taskRepositroy.GetTasks();
+           
 
 
-            for (int i = 0; i < dataGridViewTasks.RowCount - 1; i++)
+           /* for (int i = 0; i < dataGridViewTasks.RowCount - 1; i++)
             {
                 int ownerId = Convert.ToInt32(dataGridViewTasks.Rows[i].Cells[3].Value);
 
                 _tableTaskBindingSource.DataSource = _ownerTaskRepository.GetOwnerTasks(ownerId);
-            }
+            }*/
         }
 
         private void FormUsers_Load(object sender, EventArgs e)

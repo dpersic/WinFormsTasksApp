@@ -15,7 +15,7 @@ namespace PresentationLayer
     public partial class FormDeleteUser : Form
     {
         User _user = new User();
-        FormUsers _formUser = new FormUsers();
+        FormUsers _formUser ;
 
         private UserRepository _userRepository = new UserRepository();
 

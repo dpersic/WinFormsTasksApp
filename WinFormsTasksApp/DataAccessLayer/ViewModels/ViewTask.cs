@@ -13,7 +13,7 @@ namespace DataAccessLayer.ViewModels
        
         public string sTitle { get; set; }
         public string sDescription { get; set; }
-        public string  sOwner { get; set; } // jel je potrebno staviti string sOwnerName
+        public string  sOwner { get; set; }
         public string sWorker { get; set; }
         public DateTime sDeadline { get; set; }
         public int nActive { get; set; }

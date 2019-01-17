@@ -15,7 +15,7 @@ namespace PresentationLayer
     public partial class FormEditUser : Form
     {
         User _user = new User();
-        FormUsers _formUser = new FormUsers();
+        FormUsers _formUser;
         private UserRepository _userRepository = new UserRepository();
         public FormEditUser(User user, FormUsers formUser)
         {
