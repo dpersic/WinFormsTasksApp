@@ -13,14 +13,16 @@ namespace DataAccessLayer
     public class TaskRepository
     {
         public string connectionString = "Data Source=193.198.57.183; Initial Catalog = DotNet;User ID = vjezbe; Password = vjezbe";
-      //  public List<Entities.ViewTask> _tasks = new List<Entities.ViewTask>();
+      
+
+        //  public List<Entities.ViewTask> _tasks = new List<Entities.ViewTask>();
 
 
-   
+
+
         public TaskRepository()
         {
-          //  _userId = userId;
-           // _tasks = GetTasks(userId);
+         
         }
      
         public List<Entities.ViewTask> GetTasks(int userId)
@@ -48,6 +50,19 @@ namespace DataAccessLayer
                     }
                 }
             }
+            return tasks;
+        }
+
+        public List<ViewModels.ViewTask> GetAllName()
+        {
+            var users = userRepository.GetUsers();
+            var tasks = _tasks.Select(o => new ViewModels.ViewTask
+            {
+                sTitle = o.sTitle,
+                sDescription = o.sDescription,
+                sDeadline = o.sDeadline,
+                sOwner = users.Where(u => u.nId == o.nOwnerId).Select(u => u.sName + " " + u.sSurname).FirstOrDefault().ToString(),
+            }).ToList();
             return tasks;
         }
 

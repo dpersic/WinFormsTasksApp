@@ -32,11 +32,6 @@ namespace DataAccessLayer
             return tasks;
         }
 
-       /* public List<ViewModels.ViewUser>GetUsers(int userID)
-        {
-        
-        }*/
-
 
         public List<Entities.ViewTask> GetTasksOwner(int idOwner)
         {
